@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-class ArrayItTest {
+public class ArrayItTest {
     @Test
     void whenMultiCallHasNextThenTrue() {
         ArrayIt iterator = new ArrayIt(
