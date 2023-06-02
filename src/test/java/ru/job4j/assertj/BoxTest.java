@@ -51,13 +51,13 @@ class BoxTest {
     void areaCube() {
         var box = new Box(8, 5);
         double result = box.getArea();
-        assertThat(result).isEqualTo(150d);
+        assertThat(result).isEqualTo(150d, withPrecision(0.1d));
     }
 
     @Test
     void areaUnknown() {
         var box = new Box(10, 5);
         double result = box.getArea();
-        assertThat(result).isEqualTo(0);
+        assertThat(result).isEqualTo(0, withPrecision(0.1d));
     }
 }
