@@ -25,7 +25,7 @@ class SimpleConvertTest {
     @Test
     void checkList() {
         SimpleConvert simpleConvert = new SimpleConvert();
-        List <String> list = simpleConvert.toList("first", "second", "three", "four", "five");
+        List<String> list = simpleConvert.toList("first", "second", "three", "four", "five");
         assertThat(list).hasSize(5)
                 .contains("four")
                 .containsAnyOf("seven", "eight", "three")
@@ -49,7 +49,7 @@ class SimpleConvertTest {
     @Test
     void checkMap() {
         SimpleConvert simpleConvert = new SimpleConvert();
-        Map<String, Integer> map = simpleConvert.toMap( "first", "second", "three");
+        Map<String, Integer> map = simpleConvert.toMap("first", "second", "three");
         assertThat(map).hasSize(3)
                 .containsKeys("first", "second", "three")
                 .doesNotContainKey("seven")
