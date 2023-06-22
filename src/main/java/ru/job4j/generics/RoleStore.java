@@ -1,7 +1,6 @@
 package ru.job4j.generics;
 
 public class RoleStore implements Store<Role> {
-
     private final Store<Role> capacity = new MemStore<>();
 
     @Override
