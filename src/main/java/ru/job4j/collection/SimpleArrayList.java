@@ -20,7 +20,6 @@ public class SimpleArrayList<T> implements SimpleList<T> {
         }
         container[size] = value;
         size++;
-        modCount++;
     }
 
     @Override
@@ -81,7 +80,8 @@ public class SimpleArrayList<T> implements SimpleList<T> {
     private void grow() {
         if (container.length == 0) {
             container = (T[]) new Object[3];
+        } else {
+            container = Arrays.copyOf(container, container.length * 2);
         }
-        container = Arrays.copyOf(container, container.length * 2);
     }
 }
