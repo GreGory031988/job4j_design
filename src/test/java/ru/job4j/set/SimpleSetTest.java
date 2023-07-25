@@ -49,11 +49,11 @@ class SimpleSetTest {
         set.add(3);
         Iterator<Integer> iterator = set.iterator();
         assertThat(iterator.hasNext()).isTrue();
-        assertThat(iterator.next().equals(1));
+        assertThat(iterator.next()).isEqualTo(1);
         assertThat(iterator.hasNext()).isTrue();
-        assertThat(iterator.next().equals(2));
+        assertThat(iterator.next()).isEqualTo(2);
         assertThat(iterator.hasNext()).isTrue();
-        assertThat(iterator.next().equals(3));
+        assertThat(iterator.next()).isEqualTo(3);
         assertThat(iterator.hasNext()).isFalse();
     }
 }
