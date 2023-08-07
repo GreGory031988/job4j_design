@@ -23,7 +23,7 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
         if (count == capacity * LOAD_FACTOR) {
             expand();
         }
-        int index = (key == null) ? 0 : indexFor(hash(key.hashCode()));
+        int index = getIndex(key);
         if (table[index] == null) {
             table[index] = new MapEntry<>(key, value);
             count++;
@@ -46,19 +46,24 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
         MapEntry<K, V>[] newTable = new MapEntry[capacity];
         for (var entry : table) {
             if (entry != null) {
-                int hashcode = (entry.key == null) ? 0 : entry.key.hashCode();
-                int newIndex = indexFor(hash(hashcode));
+                int newIndex = getIndex(entry.key);
                     newTable[newIndex] = entry;
             }
         }
         table = newTable;
     }
 
+    private int getIndex(K key) {
+        return key == null ? 0 : indexFor(hash(key.hashCode()));
+    }
+
     @Override
     public V get(K key) {
         V rsl = null;
-        int index = (key == null) ? 0 : hash(key.hashCode());
-        if (table[index] != null && Objects.equals(key, table[index].key)) {
+        int index = getIndex(key);
+        if (table[index] != null
+                && Objects.hashCode(key) == Objects.hashCode(table[index].key)
+                && Objects.equals(key, table[index].key)) {
             rsl = table[index].value;
         }
         return rsl;
@@ -67,8 +72,10 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
     @Override
     public boolean remove(K key) {
         boolean rsl = false;
-        int index = (key == null ? 0 : hash(key.hashCode()));
-        if (table[index] != null && Objects.equals(key, table[index].key)) {
+        int index = getIndex(key);
+        if (table[index] != null
+                && Objects.hashCode(key) == Objects.hashCode(table[index].key)
+                && Objects.equals(key, table[index].key)) {
             table[index] = null;
             rsl = true;
             count--;
