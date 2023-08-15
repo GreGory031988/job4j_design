@@ -1,26 +1,20 @@
 package ru.job4j.io;
 
 import java.io.FileOutputStream;
+import java.util.Arrays;
+
+import static java.lang.System.*;
 
 public class ResultFile {
     public static void main(String[] args) {
         try (FileOutputStream out = new FileOutputStream("data/dataresult.txt")) {
-            out.write("2".getBytes());
-            out.write(System.lineSeparator().getBytes());
-            out.write("3".getBytes());
-            out.write(System.lineSeparator().getBytes());
-            out.write("4".getBytes());
-            out.write(System.lineSeparator().getBytes());
-            out.write("5".getBytes());
-            out.write(System.lineSeparator().getBytes());
-            out.write("6".getBytes());
-            out.write(System.lineSeparator().getBytes());
-            out.write("7".getBytes());
-            out.write(System.lineSeparator().getBytes());
-            out.write("8".getBytes());
-            out.write(System.lineSeparator().getBytes());
-            out.write("9".getBytes());
-            out.write(System.lineSeparator().getBytes());
+            for (String s : Arrays.asList("1 * 2 = 2", lineSeparator(), "1 * 3 = 3",
+                    lineSeparator(), "1 * 4 = 4", lineSeparator(), "1 * 5 = 5",
+                    lineSeparator(), "1 * 6 = 6", lineSeparator(), "1 * 7 = 7",
+                    lineSeparator(), "1 * 8 = 8", lineSeparator(), "1 * 9 = 9",
+                    lineSeparator())) {
+                out.write(s.getBytes());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
