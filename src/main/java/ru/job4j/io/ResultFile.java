@@ -1,9 +1,10 @@
 package ru.job4j.io;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 
-import static java.lang.System.*;
+import static java.lang.System.lineSeparator;
 
 public class ResultFile {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class ResultFile {
                     lineSeparator())) {
                 out.write(s.getBytes());
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
