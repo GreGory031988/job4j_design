@@ -33,7 +33,7 @@ public class LogFilter {
                         new FileOutputStream(out)
         ))) {
             for (String line : data) {
-                outTxt.printf("%s%n", line);
+                outTxt.println(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
