@@ -24,14 +24,14 @@ class ConfigTest {
     }
 
     @Test
-    void whenBreakingTheRules_key() {
+    void whenBreakingTheRulesKey() {
         String path = "./data/breakingTheRules_key.properties";
         Config config = new Config(path);
         assertThatThrownBy(config::load).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void whenBreakingTheRules_values() {
+    void whenBreakingTheRulesValues() {
         String path = "./data/breakingTheRules_values.properties";
         Config config = new Config(path);
         assertThatThrownBy(config::load).isInstanceOf(IllegalArgumentException.class);
