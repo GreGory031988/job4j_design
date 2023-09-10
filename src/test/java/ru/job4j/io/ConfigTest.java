@@ -14,7 +14,7 @@ class ConfigTest {
     }
 
     @Test
-    void whenWith_emptyLine_and_comments() {
+    void whenWithEmptyLineAndComments() {
         String path = "./data/with_emptyLine_and_comments.properties";
         Config config = new Config(path);
         config.load();
