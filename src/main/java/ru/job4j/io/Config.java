@@ -19,14 +19,13 @@ public class Config {
         try (BufferedReader loadIn = new BufferedReader(new FileReader(this.path))) {
             String line;
             while ((line = loadIn.readLine()) != null) {
-                if (!line.startsWith("#")
-                        && !line.isEmpty()
-                        && !(line.matches(".+=.+"))) {
-                    throw new IllegalArgumentException();
-                }
-                if (line.matches(".+=.+")) {
-                    int i = line.indexOf('=');
-                    values.put(line.substring(0, i), line.substring(i + 1));
+                if (!line.isEmpty() && !line.startsWith("#")) {
+                    if (line.matches(".+=.+")) {
+                        int i = line.indexOf('=');
+                        values.put(line.substring(0, i), line.substring(i + 1));
+                    } else {
+                    throw new IllegalArgumentException("IllegalArgument!");
+                    }
                 }
             }
         } catch (IOException e) {
