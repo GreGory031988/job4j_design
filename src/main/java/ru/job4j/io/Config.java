@@ -20,12 +20,11 @@ public class Config {
             String line;
             while ((line = loadIn.readLine()) != null) {
                 if (!line.isEmpty() && !line.startsWith("#")) {
-                    if (line.matches(".+=.+")) {
-                        int i = line.indexOf('=');
-                        values.put(line.substring(0, i), line.substring(i + 1));
-                    } else {
-                    throw new IllegalArgumentException("IllegalArgument!");
+                    if (!line.matches(".+=.+")) {
+                        throw new IllegalArgumentException(line);
                     }
+                    int i = line.indexOf('=');
+                    values.put(line.substring(0, i), line.substring(i + 1));
                 }
             }
         } catch (IOException e) {
