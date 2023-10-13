@@ -15,7 +15,25 @@ public class ArgsName {
     }
 
     private void parse(String[] args) {
+        checkArgs(args);
         for (var arg : args) {
+            String[] condition = arg.split("=", 2);
+            values.put(condition[0].substring(1), condition[1]);
+        }
+    }
+
+    public static ArgsName of(String[] args) {
+        if (args.length == 0) {
+            throw new IllegalArgumentException("Arguments not passed to program");
+        }
+        ArgsName names = new ArgsName();
+        names.parse(args);
+        return names;
+    }
+
+    private static void checkArgs(String[] args) {
+        for (var arg : args) {
+            String[] condition = arg.split("=", 2);
             if (!arg.contains("=")) {
                 throw new IllegalArgumentException("Error: This argument '%s' does not contain an equal sign"
                         .formatted(arg));
@@ -28,22 +46,11 @@ public class ArgsName {
                 throw new IllegalArgumentException("Error: This argument '%s' does not start with a '-' character"
                         .formatted(arg));
             }
-            String[] condition = arg.split("=", 2);
-            values.put(condition[0].substring(1), condition[1]);
             if (condition[1].isBlank()) {
                 throw new IllegalArgumentException("Error: This argument '%s' does not contain a value"
                         .formatted(arg));
             }
         }
-    }
-
-    public static ArgsName of(String[] args) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("Arguments not passed to program");
-        }
-        ArgsName names = new ArgsName();
-        names.parse(args);
-        return names;
     }
 
     public static void main(String[] args) {
