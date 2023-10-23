@@ -33,14 +33,14 @@ public class Zip {
         }
     }
 
-    private static void validate(ArgsName value) {
-        if (!Files.isDirectory(Path.of(value.get("d")))) {
+    private static void validate(ArgsName args) {
+        if (!Files.isDirectory(Path.of(args.get("d")))) {
             throw new IllegalArgumentException("The archived directory does not exist");
         }
-        if (!value.get("e").startsWith("*.")) {
+        if (!args.get("e").startsWith(".")) {
             throw new IllegalArgumentException("The extension was sent in the wrong format");
         }
-        if (!value.get("o").endsWith(".zip")) {
+        if (!args.get("o").endsWith(".zip")) {
             throw new IllegalArgumentException("The extension was sent in the wrong format");
         }
     }
