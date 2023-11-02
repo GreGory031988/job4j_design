@@ -20,6 +20,7 @@ public class ConsoleChat {
         List<String> chat = new ArrayList<>();
         List<String> phrases = readPhrases();
         Scanner input = new Scanner(System.in);
+        Random random = new Random();
         System.out.print("Введите слово/фразу: ");
         boolean answer = true;
         String inputData = input.nextLine();
@@ -31,7 +32,7 @@ public class ConsoleChat {
                 answer = true;
             }
             if (answer) {
-                int index = new Random().nextInt(phrases.size());
+                int index = random.nextInt(phrases.size());
                 String reply = phrases.get(index);
                 System.out.println(reply);
                 chat.add(reply);
