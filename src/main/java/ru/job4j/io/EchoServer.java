@@ -17,7 +17,7 @@ public class EchoServer {
                     String str = in.readLine();
                     if (str.contains("msg=Exit")) {
                         System.out.println("Завершить работу сервера.");
-                        break;
+                        server.close();
                     } else if (str.contains("msg=Hello")) {
                         out.write("Hello.".getBytes());
                         System.out.println("Hello.");
