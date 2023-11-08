@@ -7,10 +7,20 @@ public class UsageLog4j {
     private static final Logger LOG = LoggerFactory.getLogger(UsageLog4j.class.getName());
 
     public static void main(String[] args) {
-        LOG.trace("trace message");
-        LOG.debug("debug message");
-        LOG.info("info message");
-        LOG.warn("warn message");
-        LOG.error("error message");
+        String name = "Gregorii Kashin";
+        int age = 0B100011;
+        byte birthday = 3;
+        char gender = 'M';
+        float height = 1.86F;
+        double weight = 74.8;
+        short number = 6154;
+        boolean result = true;
+        long distance = 12345678999L;
+
+        LOG.info("""
+                        User info name : {}, age : {}, birthday : {},
+                        gender : {}, height : {}, weight : {},
+                        number : {}, result : {}, distanse : {}.""",
+                name, age, birthday, gender, height, weight, number, result, distance);
     }
 }
