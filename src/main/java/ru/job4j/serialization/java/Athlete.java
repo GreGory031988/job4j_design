@@ -32,8 +32,8 @@ public class Athlete {
     }
 
     public static void main(String[] args) {
-        final Athlete athlete = new Athlete(true,6578,"Petrov",
-                new PersonalData(35,true),
+        final Athlete athlete = new Athlete(true, 6578, "Petrov",
+                new PersonalData(35, true),
                 new Double[] {2.56, 3.48, 2.32});
         final Gson gson = new GsonBuilder().create();
         String athleteToJson = gson.toJson(athlete);
