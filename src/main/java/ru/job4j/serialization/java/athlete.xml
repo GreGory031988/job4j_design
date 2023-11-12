@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<athleteXML access="true" number="456" name="Ivanov">
+    <personalData age="24" masterOfSport="false"/>
+    <results>
+        <result>3.56</result>
+        <result>4.15</result>
+        <result>4.03</result>
+    </results>
+</athleteXML>

@@ -35,6 +35,9 @@ public class Athlete {
         final Athlete athlete = new Athlete(true, 6578, "Petrov",
                 new PersonalData(35, true),
                 new Double[] {2.56, 3.48, 2.32});
+        final Athlete athleteXML = new Athlete(true, 456, "Ivanov",
+                new PersonalData(24, false),
+                new Double[] {3.56, 4.15, 4.03});
         final Gson gson = new GsonBuilder().create();
         String athleteToJson = gson.toJson(athlete);
         System.out.println(athleteToJson);
