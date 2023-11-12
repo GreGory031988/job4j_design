@@ -1,8 +1,16 @@
 package ru.job4j.serialization.java;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "personalData")
 public class PersonalData {
-    private final int age;
-    private final boolean masterOfSport;
+    @XmlAttribute
+    private int age;
+    @XmlAttribute
+    private boolean masterOfSport;
+
+    public PersonalData() { }
 
     public PersonalData(int age, boolean masterOfSport) {
         this.age = age;
